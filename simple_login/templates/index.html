@@ -7,12 +7,14 @@
 </head>
 <body>
     <h1>Welcome{% if username %}, {{ username }}{% endif %}!</h1>
-    {% if username %}
-        <a href="{{ url_for('logout') }}">Logout</a>
-    {% else %}
-        <a href="{{ url_for('login_form') }}">Login</a>
-        <a href="{{ url_for('register') }}">Register</a>
-    {% endif %}
+    <ul>
+        {% if username %}
+            <li><a href="{{ url_for('logout') }}">Logout</a></li>
+        {% else %}
+            <li><a href="{{ url_for('login_form') }}">Login</a></li>
+            <li><a href="{{ url_for('register') }}">Register</a></li>
+        {% endif %}
+    </ul>
     {% if error %}
         <p style="color: red;">{{ error }}</p>
     {% endif %}
